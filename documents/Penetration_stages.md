@@ -1,4 +1,4 @@
-# Penetrasyon Testleri - 1
+# Penetrasyon Aşamaları
 
 
 <h3> Metasploit </h3>
