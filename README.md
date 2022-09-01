@@ -1,5 +1,7 @@
 # Fazz | Cyber Security
 
+**My notes are in Turkish.**
+
 | School Book Notes        |
 | ------------- |
 | [Information Gathering](https://github.com/FazzPy/Cyber-Security/blob/main/documents/information-gathering.md) |
@@ -13,3 +15,4 @@
 | [Wireless Security](https://github.com/FazzPy/Cyber-Security/blob/main/documents/wireless-security.md) |
 | [DOS/DDOS](https://github.com/FazzPy/Cyber-Security/blob/main/documents/dos-ddos.md) |
 | [Web Security](https://github.com/FazzPy/Cyber-Security/) |
+
