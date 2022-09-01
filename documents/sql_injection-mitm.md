@@ -156,7 +156,7 @@ True olarak dönmesini ve sorgunun her koşulda çalışmasını amaçlayınız.
 
 2. Adım: yazılan sorgu sonucu hep True değerleri elde edilir. Tüm kayıtlara ulaşınız.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/dvwa.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/dvwa.PNG">
 
 <h3>Time Based SQL Injection Atağı</h3>
 
@@ -175,7 +175,7 @@ açıklarını bulmaya ve bulunan açıkları kullanarak hedef bilgisayar üzeri
 kullanıcıları, veri tabanı tabloları vb. tüm bilgilere ulaşabilmek mümkündür. Komut satırında -h
 parametresi ile yardım sayfası açılarak bu komutun kullanımları daha detaylı incelenebilir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/sqlmap.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/sqlmap.PNG">
 
 **sqlmap -u "http://localhost/vulnerabilities/sqli/** Komutunu deneyiniz.
 
@@ -183,7 +183,7 @@ parametresi ile yardım sayfası açılarak bu komutun kullanımları daha detay
 
 1. Adım: sqlmap komutu ile hedefteki SQL Injection açıklarını tespit ediniz.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/sqlmap2.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/sqlmap2.PNG">
 
 • -u parametresi ile sqlmap fonksiyonuna bir URL belirtileceği bildirilir.
 
@@ -191,7 +191,7 @@ parametresi ile yardım sayfası açılarak bu komutun kullanımları daha detay
 
 2. Adım: Veri tabanı tablolarını ve tablo isimlerini ekrana yazdırınız.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/sqlmap3.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/sqlmap3.PNG">
 
 • -D parametresi ile veri tabanı adı belirtilir.
 
@@ -199,13 +199,13 @@ parametresi ile yardım sayfası açılarak bu komutun kullanımları daha detay
 
 3. Adım: Veri tabanı kolonlarını ekrana getiriniz.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/sqlmap4.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/sqlmap4.PNG">
 
 • -T parametresi ile tablo adı belirtilir.
 
 • --columns parametresi ile kolon bilgileri ekrana yazdırılır.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/sqlmap5.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/sqlmap5.PNG">
 
 görüldüğü gibi tüm kullanıcı isimleri ve şifreleri hashlenmiş bir şekilde
 ekrana yazdırılmıştır. Şifreler, hash değerlerinin yanında parantez içlerinde çözülmüş olarak
@@ -213,7 +213,7 @@ görülmektedir.
 
 4. Adım: Kolonlardaki değerleri ekrana yazdırınız
 
-<img src="https://github.com/FazzPy/security/blob/main/img/sqlmap6.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/sqlmap6.PNG">
 
 • -C parametresi ile kolon adı belirtilir.
 
@@ -234,7 +234,7 @@ en tehlikeli atak türüdür çünkü saldırgan direkt olarak kişisel bilgiler
 kartı bilgileri vb.) çok kolay bir şekilde ele geçirebilir. Bu atak, yerel ağdan yapılabildiği gibi uzak
 ağdan da gerçekleştirilebilir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/mitm.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/mitm.PNG">
 
 <h3>MITM Saldırı Türleri</h3>
 
@@ -379,12 +379,12 @@ fazla hedefe atak yapılabilir. Parametreden sonra IP adresleri virgül ile ayr�
 6. Adım: Görsel’deki parametreleri yazarak arp.spoof konfigürasyonunu tamamlayınız.
 Arp.spoof ile ilgili log mesajları da sistem üzerinden görülür. 
 
-<img src="https://github.com/FazzPy/security/blob/main/img/arpspoofingconfig.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/arpspoofingconfig.PNG">
 
 parametrelerden görüldüğü üzere 192.168.1.21 numaralı makineye bir arp.
 spoof saldırısı gerçekleşecektir. Bu saldırı öncesi hedef bilgisayarın MAC adres tablosu Görsel'deki gibidir.
 
-<img src='https://github.com/FazzPy/security/blob/main/img/mactable.PNG'>
+<img src='https://github.com/FazzPy/Cyber-Security/blob/main/img/mactable.PNG'>
 
 arp.spoof on komutu yazıldıktan sonra atak başlar ve MAC adres tablosunda mac adresleri aynı olmuştur.
 
@@ -402,7 +402,7 @@ istediği tüm bilgiler aynı anda hem modeme hem de saldırganın bilgisayarın
 gelen ve giden web sayfaları, GET istekleri, 200 OK bilgileri gibi çok detaylı logları ve protokolleri
 (DNS, HTTP vb.) listelenmektedir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/netsniff.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/netsniff.PNG">
 
 Bu aşamadan sonra saldırgan istediği bilgiye ulaşabilir, istediği bilgiyi değiştirebilir ve hedefe
 diğer saldırı yöntem ve tekniklerinin vereceği zararın çok daha fazlasını saniyeler içinde verebilir.
