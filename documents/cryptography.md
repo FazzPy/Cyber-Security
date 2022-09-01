@@ -60,7 +60,7 @@ veya değil) işlemine tabi tutulacaktır. Böylelikle şifreleme işlemi uygula
 
 DES şifreleme algoritmasının çalışma mantığı:
 
-<img src="https://github.com/FazzPy/security/blob/main/img/des.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/des.PNG">
 
 Blowfish: Günümüzün en hızlı blok şifreleyici algoritmalarından biridir. Bu şifreleme yönteminde karmaşık anahtar çizelgesi kullanıldığı için bu yöntemle elde edilen şifrelerin kırılması
 oldukça zordur. Blowfish, 23'ten 448 bite kadar anahtar uzunluğuna sahiptir.
@@ -91,7 +91,7 @@ hash çarpışması olarak bilinir. Hash algoritmasına şifrelenmesi istenilen 
 fonksiyonuyla metin hashing işlemi yapılır. Elde edilen metin, hash değeridir. Hash
 algoritmaları şifreleme algoritması içermez.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/hash.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/hash.PNG">
 
 Hashing fonksiyonları temel olarak iki amaçla kullanılır.
 • Gönderilen verinin bütünlüğü kontrol edilir. Bu şekilde verinin değişmediğinden emin olunur.
@@ -177,7 +177,7 @@ Birkaç asimetrik şifreleme algoritması olsa da (Diffie-Hellman, DSA, Eliptik 
 kullanılanı RSA algoritmasıdır. Asimetrik algoritmalar, simetrik algoritmalara göre çok daha yavaş
 çalışır.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/asimetrik.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/asimetrik.PNG">
 
 <h3>RSA (Rivest-Shamir-Adleman) Şifreleme Tekniği</h3>
 
@@ -247,7 +247,7 @@ değerler değil, onların şifrelenmiş hâlleridir.
 anahtarını kullanarak mesajı şifreler. Bülent ise kendisine gelen şifreli mesajı bu 1 anahtarını
 kullanarak açar. 
 
-<img src="https://github.com/FazzPy/security/blob/main/img/diffie-helman.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/diffie-helman.PNG">
 
 <h3>STEGANOGRAFİ ŞİFRELEME YÖNTEMİ</h3>
 
@@ -309,7 +309,7 @@ gösterilmesi için geliştirilmiştir. Her bir piksel 8 bitlik değerler alan �
 bir bölüm 8 bitle gösterildiği için 0-255 arasında farklı değer alabilir. Görsel’de 10x10 pixel
 matrisinde her bir pikselin aldığı renkler gösterilmiştir. Her renk, RGB kodu ile ifade edilir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/rgb.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/rgb.PNG">
 
 8 bitlik yazımda en soldaki en anlamlı bittir. Bu bit değiştirilirse renkte önemli bir değişiklik
 meydana gelir. Örneğin değeri 0010 1000 olan bir pikselin değeri 40’tır. En soldaki 0 değeri 1
