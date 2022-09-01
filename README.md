@@ -13,5 +13,5 @@
 | [DOS/DDOS](https://github.com/FazzPy/Cyber-Security/blob/main/documents/dos-ddos.md) |
 | [SQL INJECTION / MITM](https://github.com/FazzPy/Cyber-Security/blob/main/documents/sql_injection-mitm.md) |
 | [Wireless Security](https://github.com/FazzPy/Cyber-Security/blob/main/documents/wireless-security.md) |
-| [Web Security](https://github.com/FazzPy/Cyber-Security/) |
+| [Web Security](https://github.com/FazzPy/Cyber-Security/blob/main/documents/web-security.md) |
 
