@@ -77,7 +77,7 @@ kontrol ediniz.
 adresini kullanarak diğer bilgileri elde etmek için komut satırına sudo airodump-ng --bssid
 <Hedef MAC Adresi> -c <kanal no> wlan0 yazınız.
   
-<img src="https://github.com/FazzPy/security/blob/main/img/airodump.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/airodump.PNG">
  
 5. Adım: Biraz bekledikten sonra hedef MAC adresini dinleyerek station ve probes gibi bütün
 bilgileri ekranda görünüz. STATION ile bulunan MAC adresi, erişim noktasına bağlı
@@ -95,7 +95,7 @@ kontrol ediniz.
  
 3. Adım: Komut satırına sudo iwlist wlan0 scanning yazarak kablosuz ağ için tarama başlatınız 
 
-<img src="https://github.com/FazzPy/security/blob/main/img/iwlist.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/iwlist.PNG">
  
 Bu komut ile yakın çevredeki kablosuz erişim cihazlarının özeliklerine ait aşağıdaki bilgiler
 tespit edilir.
@@ -133,7 +133,7 @@ kontrol ediniz.
  3. Adım: Komut satırına sudo airodump-ng wlan0 --encrypt wpa2 yazarak kablosuz ağ için
 tarama başlatınız.
  
- <img src="https://github.com/FazzPy/security/blob/main/img/airodump.PNG"></img>
+ <img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/airodump.PNG"></img>
  
  <h3>KABLOSUZ AĞLARDA GÜVENLİK ZAFİYETLERİ </h3>
  
@@ -166,20 +166,20 @@ ediniz.
  
  4. Adım: Hedef cihazın MAC adresini ve kanal numarasını seçiniz
  
- <img src="https://github.com/FazzPy/security/blob/main/img/airodump1.PNG">
+ <img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/airodump1.PNG">
  
  5. Adım: Komut satırına sudo airodump-ng --bssid Hedef Cihaz MAC Adresi -c Kanal No
 wlan0 yazınız. Seçilen hedef cihazı dinlemeye alarak bu cihaza bağlanan istemcileri ve MAC
 adreslerini bulunuz
  
-<img src="https://github.com/FazzPy/security/blob/main/img/airodump2.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/airodump2.PNG">
  
  6. Adım: Komut satırına sudo airodump-ng -c Hedef Cihaz Kanal No --bssid Hedef Cihaz
 MAC Adresi -w /root/kali/Desktop/deneme yazınız. Seçilen hedef cihazla belirtilen kanal
 numarasından bağlantı kurup, yapılan görüşmelerden bir bilgi paketi yakalayarak deneme.cap
 ismi ile masaüstüne kaydediniz.
  
- <img src="https://github.com/FazzPy/security/blob/main/img/airodump3.PNG">
+ <img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/airodump3.PNG">
  
  7. Adım: Başka bir komut penceresi açınız ve komut satırına sudo aireplay-ng --deauth 0
 -a –bssid Hedef Cihaz MAC Adresi –c Hedefe Bağlı Olan istemci MAC Adresi wlan0 yazınız. Bu
@@ -190,12 +190,12 @@ gönderiniz.
 kırmak istediğiniz hedef erişim noktasını, -c ile de hedef erişim cihazına bağlı istemcinin MAC
 adresini belirttiniz.
  
- <img src="https://github.com/FazzPy/security/blob/main/img/airodump4.PNG">
+ <img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/airodump4.PNG">
 
  Bu işlem sonucunda hedef erişim noktasına bağlı cihazın bağlantısı sonlanır ve erişim noktası
 ile el sıkışma olayı (handshake) gerçekleşir.
  
- <img src="https://github.com/FazzPy/security/blob/main/img/airodump5.PNG">
+ <img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/airodump5.PNG">
  
  8. Adım: Başka bir komut penceresi açınız ve komut satırına sudo aircrack-ng –w /home/
 kali/Desktop/rockyou.txt /home/kali/Desktop/deneme-01.cap yazınız. Bu komut
@@ -204,13 +204,13 @@ rockyou.txt isimli dosyadaki şifrelerle karşılaştırılarak hedef cihazın W
 rockyou isimli dosya içinde olan bir şifre ise ekranda bu şifreyi gösterir, değilse şifre bulunamadı
 yazar. 
  
- <img src="https://github.com/FazzPy/security/blob/main/img/aircrackng.PNG">
+ <img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/aircrackng.PNG">
  
  
  9. Adım: Şifre çözümleme işlemi uzun sürer. Bir ekran görüntüsü ile
 karşılaşıncaya kadar bekleyiniz.
  
- <img src="https://github.com/FazzPy/security/blob/main/img/aircrackng1.PNG">
+ <img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/aircrackng1.PNG">
  
  <h3>Sahte Kablosuz Ağ Oluşturma</h3>
  
@@ -291,7 +291,7 @@ numarasını alıp internette hangi sayfalara gittiğine, dnschef ile dns yönle
 veya tcpdump ile HTTP trafiğinde parola bilgilerini görünüz.
  
  
- <img src="https://github.com/FazzPy/security/blob/main/img/freewifi.PNG">
+ <img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/freewifi.PNG">
  
  <h3>Ağ Topolojisinin Ortaya Çıkması</h3>
  
@@ -328,7 +328,7 @@ menüsünden Sniffing/Spoofing > ettercap-graphical seçiniz.
  4. Adım: Ettercap ekranının Setup bölümünde kablosuz ağ kartı kullanıyorsanız wlan0, sanal
 makine içinde bir işletim sistemi hedef cihaz ise eth0 seçiniz.
  
- <img src="https://github.com/FazzPy/security/blob/main/img/ettercap.PNG">
+ <img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/ettercap.PNG">
  
  5. Adım: Ağ kartı ayarlarından sonra host cihazlarını bulmak için tarama yapınız.
  
@@ -340,7 +340,7 @@ makine içinde bir işletim sistemi hedef cihaz ise eth0 seçiniz.
  8. Adım: Hedefleri belirledikten sonra sağ üst bölümden ARP poisoning kutucuğunu seçip
 atağı başlatınız.
  
- <img src="https://github.com/FazzPy/security/blob/main/img/ettercap1.PNG">
+ <img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/ettercap1.PNG">
  
  9. Adım: Bu aşamalardan sonra bütün ağ trafiğinin bilgisayarınız üzerinden aktığını görünüz.
 Wireshark yazılımı ile kurban cihazın ağ ve internet üzerindeki trafiğini izleyiniz.
@@ -366,12 +366,12 @@ kontrol ediniz.
  4. Adım: Hedef cihaz MAC adresi belirlenmiştir. Bu MAC adresini kullanarak
 erişim noktasının MAC adresini ve diğer bilgilerini elde etmek için komut satırına sudo airodumpng --bssid <Hedef MAC Adresi> -c <kanal no> wlan0 yazınız.
  
- <img src="https://github.com/FazzPy/security/blob/main/img/macchanger1.PNG">
+ <img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/macchanger1.PNG">
  
  5. Adım: Hedef cihazın MAC adresi ve diğer bilgileri elde edildikten sonra kendi MAC adresinizi
 bulmak için komut satırına sudo macchanger --show wlan0 yazınız.
  
- <img src="https://github.com/FazzPy/security/blob/main/img/macchanger2.PNG">
+ <img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/macchanger2.PNG">
  
  6. Adım: Komut satırına **sudo ifconfig down** yazarak monitör moddan çıkınız.
  
