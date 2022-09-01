@@ -18,7 +18,7 @@ Wireshark, yüklendiği bilgisayarın bağlı olduğu ağ üzerindeki protokolle
 ortaya çıkan bilgileri kaydedebilen, sonrasında bu kayıtları açıp okumaya izin veren bir uygulamadır.
 Wireshark, açık kaynak bir yazılımdır ve grafik arayüzü sayesinde kullanımı kolaydır. 
 
-<img src="https://github.com/FazzPy/security/blob/main/img/wireshark.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/wireshark.PNG">
 
 Arayüz ekranında görünen bölümler aşağıdaki gibi gruplanmıştır.
 1. Menü seçeneklerinin yer aldığı menü alanıdır.
@@ -37,7 +37,7 @@ kullanırlar. Kali Linux işletim sisteminde tcpdump komutlarını kullanmak iç
 
 Tcpdump komutu çeşitli parametrelere sahiptir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/tcpdump.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/tcpdump.PNG">
 
 1. Adım: tcpdump parametresi yalın olarak kullanıldığında arayüz numarası en düşük ağı
 dinlemeyi sağlar. eth0, eth1, eth2 şeklinde üç adet aktif ağ arayüzü olan bir bilgisayarda tcpdump
@@ -62,7 +62,7 @@ görevini yapmasını engelleyebilir.
 bu saldırı yöntemine MAC seli (MAC flooding)
 saldırısı adı verilmektedir. 
 
-<img src="https://github.com/FazzPy/security/blob/main/img/macflooding.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/macflooding.PNG">
 
 Switch cihazı bu saldırıya daha fazla dayanamayıp gelen paketleri belirli bir adrese değil de tüm
 makinelere göndermeye başlar. HUB (çoklayıcı) gibi davranarak ağdaki trafiği ve işlemleri diğer
@@ -75,7 +75,7 @@ başlar.
 Kali Linux işletim sistemi üzerinden MAC flooding saldırısı yapmak için macof komutu kullanılır.
 Macof -h komut dizini kullanılarak macof komutunun tüm parametreleri görülebilir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/macflooding2.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/macflooding2.PNG">
 
 macof [-i interface] [-s src] [-d dst] [-e tha] [-x sport] [-y dport] [-n times]
 
@@ -93,16 +93,16 @@ MAC flooding trafiği Wireshark programı ile analiz edilebilir. Wireshark menü
 Görsel’deki gibi Statistics >I/O Graph sekmesi tıklandığı zaman ağdaki paket sayısında belirli
 bir sürede alttaki Görsel’deki gibi anormal bir artışın olması saldırının yapıldığını göstermektedir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/macflooding3.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/macflooding3.PNG">
 
-<img src="https://github.com/FazzPy/security/blob/main/img/macflooding4.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/macflooding4.PNG">
 
 Wireshark menü çubuğundan Statistics > Conversations seçeneğine tıklanarak saldırı tespiti
 yapılır. Tabloda IP adreslerinin sahteliği, paketlerin byte boyutu, byte boyutunun
 belli bir oranda sabit olması ve paket transferleri arasındaki zaman farkının çok az olması bu ağa
 bir MAC flooding saldırısı yapıldığını göstermektedir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/macflooding5.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/macflooding5.PNG">
 
 <h3>MAC Flooding Saldırısından Korunma Yolları</h3>
 
@@ -119,7 +119,7 @@ alan ağında sahte ARP mesajları gönderdiği bir saldırı türüdür. ARP ta
 doldurulmasıyla gerçekleşen bu saldırıda ağdaki tüm haberleşme saldırgan tarafından ele
 geçirilir. Bir makinedeki ARP tablosunu görüntülemek için cmd ekranına arp -a kodu yazılır.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/arp.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/arp.PNG">
 
 ARP zehirlenmesi üç şekilde gerçekleştirilmektedir. Bunlar; hedef bilgisayarın ARP tablosunu
 doldurma, ortadaki adam saldırı yöntemi (Man in the Middle), hedef bilgisayarın paketlerini
@@ -136,7 +136,7 @@ içeriklerini okuyabilir.
 Saldırgan, ortadaki adam saldırısında aynı ağ üzerinde haberleşen iki cihazın arasına girerek
 ağdaki tüm iletişimi dinleyebilir, iletişimi sonlandırabilir veya sahte bir iletişim oluşturabilir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/mitm.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/mitm.PNG">
 
 <h3>Hedef Bilgisayarın Paketlerini Başkasına Gönderme</h3>
 
