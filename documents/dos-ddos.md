@@ -13,7 +13,7 @@ bir bileşen (RAM, önbellek vb.) tarafından sınırlandırılan bölümleri ku
 yüksek kapasiteyi aşacak şekilde tasarlanmıştır. Böylelikle o siteye gerçekten erişmek isteyenlere
 sistem cevap vermez. Hedef, maddi ve manevi zarara veya itibar kaybına maruz kalır
 
-<img src="https://github.com/FazzPy/security/blob/main/img/dos.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/dos.PNG">
 
 DoS atakları farklı türlerde gerçekleştirilir. Bant genişliğine yönelik ataklar, belirli bilgisayarı
 (host) ve servisleri düşürmek için yapılan ataklar ile SYN tekniği kullanılarak yapılan ataklar en
@@ -44,9 +44,9 @@ daha net bir ifade ile .Net Framework’ün Linux tabanlı sistemlerde çalışm
 Görsel’de görüldüğü üzere mono aracı üç aşamada kurulur ve en sondaki komut ile LOIC
 aracı çalıştırılır. LOIC aracı çalıştığında altında ki Görsel’deki ekran ile karşılaşılır.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/mono.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/mono.PNG">
 
-<img src="https://github.com/FazzPy/security/blob/main/img/loic.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/loic.PNG">
 
 **Not : Star Wars temalı olsaydı güzel olurdu...**
 
@@ -61,7 +61,7 @@ Hizmet reddi atağı gerçekleştiren bir başka araç yeni adıyla OWASP Switch
 DoS HTTP POST olarak bilinen araçtır. Bu araç, sitelerdeki DoS ataklarına karşı test için yazılsa
 da saldırganlar bunu kötü amaçlı kullanabilir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/switchblade.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/switchblade.PNG">
 
 1 No.lu Alan: Atak tipinin seçildiği alandır. Slow headers, Slow POST ve SSL Renegotiation
 olmak üzere üç farklı atak tipi vardır.
@@ -109,7 +109,7 @@ basılarak açılan pencerede Open in Terminal seçeneğini seçiniz.
 3. Adım: 3 numaralı alanda hulk aracını çalıştırmak için hulk.py programını
 kullanınız ve parametre olarak hedef IP adresini yazınız.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/hulk.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/hulk.PNG">
 
 HULK aracı çalıştırıldıktan sonra işlemci, RAM ve Wi-Fi ağındaki işlem yükü artışı
 görülür.
@@ -150,7 +150,7 @@ paketlerini beklemeye başlar. İletişim başlayacağı için sunucu ilgili por
 olmayan bir kişi iletişim başlatmak için SYN paketi gönderdiğinde ona ayıracağı portu kalmaz ve
 sunucu cevap veremez duruma gelir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/synflood.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/synflood.PNG">
 
 SYN atağında kullanılan farklı araçlar mevcuttur. Bu öğrenme biriminde en etkili araç olan
 “hping” komutu incelenecektir. 
@@ -167,7 +167,7 @@ Sistemde hping3 komutunun yüklü olup olmadığını kontrol etmek için 1 numa
 komut yazılarak versiyon bilgisi öğrenilebilir. Versiyon bilgisi sonucu Görsel’deki gibi değilse
 2 numaralı alandaki komut ile kurulum yapılır.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/hping3.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/hping3.PNG">
 
 **hping3 -h 3 ile ilgili hangi parametrenin hangi görevi yerine getirdiği görülür. **
 
@@ -182,7 +182,7 @@ parametreler aşağıda verilmiştir.
 • --flood: Cevaplar beklenmeden paketlerin art arda hızlı bir şekilde gönderilmesini sağlar.
 • -p: Port numarasını belirtir. 
 
-<img src="https://github.com/FazzPy/security/blob/main/img/hping3atak.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/hping3atak.PNG">
 
 Saldırı başlatıldığında işlemci performans göstergesi 100’lere kadar çıkacaktır. Bu durum,
 hedefin normalde yapabilmesi gereken işlemleri gerçekleştiremeyeceği ve sistem kaynaklarının
@@ -202,7 +202,7 @@ bir sisteme atak yapabilir. En çok tercih edilen bu yöntemdir. Bu sayede sald�
 kendini de gizler ve olan biteni arka planda izler. Bu atak yöntemi, Mass-Intrusion (Kitlesel Saldırı)
 faz tekniği olarak da adlandırılır. Mass-Intrusion fazı, DDoS ataklarının ilk aşamasını oluşturur. 
 
-<img src="https://github.com/FazzPy/security/blob/main/img/ddos.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/ddos.PNG">
 
 Zombi Bilgisayar: Bir saldırgan tarafından virüs, Truva atı gibi zararlı bir yazılım yüklenmiş
 bilgisayarlardır. Saldırgan bu sayede istediği zaman bu bilgisayarı kullanarak çeşitli ataklar
@@ -231,7 +231,7 @@ Eksik paketler gönderdiği için saldırı tespit sistemleri (IDS) bu tür DDoS
 Ayrıca günlük (log) oluşturmayı engelleyebilir. Bu durum, siber güvenlik analistlerinin olayı tespit
 etmesini güçleştirir. 
 
-<img src="https://github.com/FazzPy/security/blob/main/img/slowloris.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/slowloris.PNG">
 
 **git clone https://github.com/gkbrk/slowloris.git** komutu kullanılarak slowloris aracı işletim sistemine indirilir. İndirilen araç bir
 klasör içinde gelir. Herhangi bir kurulum işlemi gerektirmez fakat daha farklı kullanımlar için bir
@@ -249,7 +249,7 @@ Aşağıdaki işlem adımlarına göre slowloris aracının kullanımını gerç
 
 1. Adım: Apache web sunucusunu aktifleştiriniz ve sunucunun çalışmasını kontrol ediniz.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/apache.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/apache.PNG">
 
 2. Adım: Slowloris aracının olduğu dizine gidiniz.
 
@@ -284,7 +284,7 @@ istekleri reddedilir.
 Çok çeşitli dillerde yazılmış RUDY aracı kodları vardır. Bu kodlar kullanılarak veya çeşitli
 özellikler eklenerek araç geliştirilebilir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/rudy.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/rudy.PNG">
 
 <h3>RUDY Aracının Kullanımı</h3>
 
