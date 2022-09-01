@@ -22,7 +22,7 @@ anahtarı kullanır. Bu durum, veri şifrelemek açısından daha sorunsuz bir y
 sistemi çok hızlı şifreleme ve şifre çözümleme işlemlerini gerçekleştirebilir. Görsel'de bir
 simetrik şifreleme yöntemine ait blok diyagram verilmiştir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/kritpgrafi.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/kritpgrafi.PNG">
 
 Simetrik şifrelemenin avantajları şunlardır:
 • Şifreleme ve şifreyi çözme işlemleri hızlıdır.
