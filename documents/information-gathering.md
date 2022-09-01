@@ -27,7 +27,7 @@ veya IP adresinin sahibi, kendine ait bilgilerin whois sorgusu sırasında liste
 Bunun için whois gizleme servisinin aktif edilmesi gerekir. Böylece ICANN, bilgileri gizler ve whois
 sorgusu yapanların bilgileri görmesini engeller.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/whois.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/whois.PNG">
 
 <h3>SHODAN CLI</h3>
 
@@ -36,7 +36,7 @@ hedef kolay ve pasif bir şekilde analiz edilir. Shodan arama motoru ile hedef s
 erişebilmek ve sistem hakkında daha ayrıntılı bilgi toplayabilmek için terminal üzerinden shodan
 komutları uygulanır.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/shodan.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/shodan.PNG">
 
 <h3>RIPE NCC</h3>
 
@@ -45,11 +45,11 @@ kâr amacı gütmeyen bir kuruluştur. Belirtilen bölgelerde yer alan IP adresl
 bilgi sorgulaması yapmak için https://www.ripe.net internet adresinden yararlanılır. İlgili web
 sayfasında bilgi alınmak istenen IP adresi yazılarak sorgulama yapılır.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/ripe1.png">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/ripe1.png">
 
 Sorgu sonucunda görselde görülen bilgiler ile karşılaşılır:
 
-<img src="https://github.com/FazzPy/security/blob/main/img/ripe2.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/ripe2.PNG">
 
 <h3>Bing Arama Motoru (IP Operatörü)</h3>
 
@@ -89,15 +89,15 @@ adının e-posta adreslerini ve alt alan adlarını tespit etmek için kullanıl
 toplama aracı, Kali Linux üzerinde yüklü olarak gelir. Komut satırında -h parametresi ile yardım
 sayfası açılarak aracın kullanımı daha detaylı incelenebilir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/harvester.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/harvester.PNG">
 
-<img src="https://github.com/FazzPy/security/blob/main/img/harvester2.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/harvester2.PNG">
 
 •  d parametresi ile hedef alan adı belirtilir.
 • -l parametresi ile arama yapılacak sonuç sayısı belirtilir.
 • -b parametresi ile arama yapılacak arama motoru listesi belirtilir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/harvester3.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/harvester3.PNG">
 
  Hedef domain hakkında bilgi toplamak için kullanılan popüler arama motorları şunlardır:
   • google 
@@ -120,7 +120,7 @@ Aşağıdaki işlem adımlarına göre theHarvester komutunu kullanınız.
 1. Adım: Bilgi toplamak istediğiniz hedef alan adını belirleyiniz.
 2. Adım: Hedef e-posta adreslerini ve alt alan adlarını theHarvester komutu ile tespit ediniz 
 
-<img src="https://github.com/FazzPy/security/blob/main/img/harvester4.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/harvester4.PNG">
 
 • d parametresi ile hedef alan adı belirtilir.
 • -b parametresi ile arama yapılacak kaynak arama motorları belirtilir. Tüm arama motorlarını belirtmek için all kelimesi kullanılabilir.
@@ -130,7 +130,7 @@ Aşağıdaki işlem adımlarına göre theHarvester komutunu kullanınız.
 
 Tespit edilen e-posta adreslerini, alt alan adlarını ve IP adreslerini inceleyiniz.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/harvester5.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/harvester5.PNG">
 
 Tespit edilen bilgilerin kaydedildiği XML ve JSON dosyalarını inceleyiniz.
 
@@ -178,14 +178,14 @@ eden bir araçtır.
 
 LBD aracı **lbd <alan adı>** şeklinde kullanılır.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/lbd.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/lbd.PNG">
 
 <h3>DNSRECON</h3>
 
 Dnsrecon, hedef alan adına ait alt alan adlarını ve IP adreslerini arama motorları üzerinden
 tespit edebilen bir araçtır. Python diliyle yazılan bu araç, Kali Linux üzerinde yüklü olarak gelir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/dnsrecon.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/dnsrecon.PNG">
 
 • -t parametresi ile hangi arama çeşidinin kullanılacağı belirtilir. Yandex arama motoru ile
 arama yapmak için yand argümanı kullanılır.
@@ -197,7 +197,7 @@ Dnsrecon aracı ile ilgili yardım sayfasına ulaşmak için komut satırında d
 Dnsrecon komutu çalıştırıldığında hedef domainin Görsel'de görülen alt alan adları ve IP
 adresleri ile karşılaşılır.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/dnsrecon2.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/dnsrecon2.PNG">
 
 **Dnsrecon Komutu**
 
@@ -206,7 +206,7 @@ Aşağıdaki işlem adımlarına göre dnsrecron komutunu kullanınız.
 1. Adım: Bilgi toplamak istediğiniz hedef alan adını belirleyiniz.
 2. Adım: Hedef alt alan adlarını ve IP adreslerini dnsrecon komutu ile tespit ediniz.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/dnsrecon3.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/dnsrecon3.PNG">
 
 • -t parametresi ile arama çeşidi belirtilir. Bing arama motorunu belirtmek için bing argümanı
 kullanılır.
@@ -220,12 +220,12 @@ sürümleri bulunan maltego, Kali Linux üzerinde kurulu şekilde gelir. Bu ara�
 elde edilen bilgileri görselleştirerek bağlantı analizi ve veri madenciliği için uygun hâle getirmeye
 odaklanır.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/maltego.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/maltego.PNG">
 
 Sol tarafta bulunan Entity Palette penceresinin Infrastructure bölümündeki Domain nesnesi
 sayfaya sürüklenir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/maltego2.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/maltego2.PNG">
 
 Domain nesnesi üzerindeki alan adına çift tıklanır. Bilgi toplanmak istenen hedef domain
 yazılır.
@@ -233,9 +233,9 @@ yazılır.
 Domain nesnesi üzerinde sağ tuş yapılır. All Transforms seçeneğinin yanındaki ok tuşuna
 tıklanarak bilgi toplama çalıştırılır.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/maltego3.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/maltego3.PNG">
 
-<img src="https://github.com/FazzPy/security/blob/main/img/maltego4.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/maltego4.PNG">
 
 Sayfanın içinde Domain nesnesinden uzaklaşıldığında toplanan bilgilerin türleri de
 renklendirilmiş biçimde sunulur.
@@ -253,7 +253,7 @@ Viewdns.info; IP adresinin coğrafi konumunu, MAC adres ile ağ cihazının üre
 bulmak için kullanılır. Bu web sayfası ile ping, traceroute ve çok daha fazla araç
 kullanıma sunulur.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/viewdnsinfo.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/viewdnsinfo.PNG">
 
 <h3>Viewdns.info (Get HTTP Headers) Kullanımı</h3>
 
@@ -262,7 +262,7 @@ Aşağıdaki işlem adımlarına göre Get HTTP Headers aracını kullanınız.
 1. Adım: HTTP başlığı bilgisini elde etmek istediğiniz hedef alan adını belirleyiniz.
 2. Adım: Get HTTP Headers aracı ile hedef alan adını sorgulayınız.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/viewinfoheaders.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/viewinfoheaders.PNG">
 
 <h3>Archive.org</h3>
 Archive.org, 1996 yılından itibaren tüm web sitelerinin indekslerinin belli dönemlerde
@@ -328,7 +328,7 @@ OSINT Framework, kullanıcıları yüzlerce pasif bilgi toplama aracına yönlen
 sitesidir. Bu web sitesindeki kategorilerden bilgi toplanmak istenen hedefe uygun olanı seçilir.
 Seçilen kategorideki araçlar ile pasif bilgi toplama gerçekleştirilir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/osint.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/osint.PNG">
 
 <h3>AKTİF BİLGİ TOPLAMA YÖNTEMLERİ UYGULAMALARI</h3>
 
@@ -455,16 +455,16 @@ Belirtilen portlar virgülle ayrılır.
 --script parametresi ile zafiyet tespiti yapmak için 21 numaralı port üzerinden FTP servisi
 kontrol edilir:
  
-<img src="https://github.com/FazzPy/security/blob/main/img/nmapscript.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/nmapscript.PNG">
  
  --script parametresi ile zafiyet tespiti yapmak için 445 numaralı port üzerinden microsoft-ds
 servisi kontrol edilir.
  
-<img src="https://github.com/FazzPy/security/blob/main/img/nmapscript2.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/nmapscript2.PNG">
  
  <h3>On-line Port Tarama Teknikleri</h3> 
  
  Port tarama işlemleri, web siteleri üzerinden de yapılabilir. On-line port taramak için https://
 viewdns.info/portscan web sitesi kullanılabilir.
  
-<img src="https://github.com/FazzPy/security/blob/main/img/onlineport.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/onlineport.PNG">
