@@ -55,7 +55,7 @@ işletim sistemine bu araç yüklenmelidir.
 Hydra aracına Uygulamalar, Kali Linux, Password Attacks, Online Attacks, hydra yolu kullanılarak
 ulaşılabilir.
 
-<img src="https://github.com/FazzPy/security/blob/main/img/hydra.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/hydra.PNG">
 
 **Hydra Komut Yapısı**
 
@@ -186,7 +186,7 @@ Offline Attacks yolu kullanılarak ulaşılır.
  Linux tabanlı işletim sistemlerinde kullanıcı bilgileri /etc/passwd dosyasında saklanır.
 Kullanıcıların isimleri ve parolaları ise /etc/shadow dosyasının içinde şifrelenmiş şekilde bulunur. 
  
-  <img src="https://github.com/FazzPy/security/blob/main/img/etcshadow.PNG">
+  <img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/etcshadow.PNG">
  
  Root yetkisine sahip kullanıcıya ait bilgiler, shadow dosyasının içeriğinde şifrelenmiş şekilde
 verilir. Dosyadaki ifadeler incelendiğinde “:” ile ayrılmış alanların olduğu görülmektedir. Bu
@@ -322,7 +322,7 @@ dosyayı kullanır. Bu dosyanın içeriğinde çeşitli karakter kümeleri bulun
 bu gruba verilen numerics charseti kullanılmalıdır. charset.lst dosyasının içeriğini ve karakter
 kümelerini görüntülemek için Görsel’de verilen komut girilmelidir.
  
-<img src="https://github.com/FazzPy/security/blob/main/img/crunch.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/crunch.PNG">
  
 Charset içinde bulunan kümelerden uygun olanlar seçilip, komut dizini oluşturularak sözlük
 listesi hazır hâle getirilebilir.
@@ -398,7 +398,7 @@ uzantısını değiştirir.
 rainbowcrack yolu kullanılarak ulaşılabilir. Aracı açtıktan sonra parametreleri ve kullanım
 örnekleri ekranda görüntülenebilir.
  
- <img src="https://github.com/FazzPy/security/blob/main/img/rainbowcrack.PNG">
+ <img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/rainbowcrack.PNG">
  
   Rainbowcrack Kullanımı ve Parametreleri
  
@@ -428,7 +428,7 @@ Tablo_başlangıç_sayısı: 0, 1, 2,… Her zincir için başlangıç değerini
 Aşağıda belirtilen komutlar yazılarak oluşturulacak tablo bir hayli kaplar ve rtgen ile özet
 oluşturulması da ortalama yirmi dakika sürer.
  
-<img src="https://github.com/FazzPy/security/blob/main/img/rtgen.PNG">
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/rtgen.PNG">
  
 Rtsort ile zincirlerin bitiş değerleri daha kolay bir arama için sıralanabilir. Rtgen ile oluşturulan
 tablolar rcrack ile kullanılmadan önce rtsort ile sıralanmalıdır. Rcrack eldeki özetlerin tablodaki
