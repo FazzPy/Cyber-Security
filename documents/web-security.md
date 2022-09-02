@@ -422,5 +422,381 @@ zararlı bir kod doğrudan çalışacaktır.
 
 https://www.benim-sitem.com/index.html#<script>alert(‘Bilgilerinizi ele geçirdim !’)</script>
 
+Bu zararlı link ile # simgesinden sonra gelen kısım HTML’e göre bir etiket olduğu için DOM
+tarafından ekleme anında çalıştırılabilir şekilde linke eklenecektir. Önceki kısım ise sadece
+metinden ibaret olduğu için görüntülenmesi dışında hiçbir zarar vermeyecektir.
+XSS temelde kullanıcıyı hedef aldığı için ilk aşamada zarar verilemese de farklı saldırı
+yöntemleriyle birleştirilerek sisteme ciddi zararlar verilebilir. Ayrıca JavaScript kodları encode
+edilmiş şekilde de olabilir. Kodun okunaklı olup olmaması önemli değildir. Önemli olan husus,
+hedef tarayıcıda JavaScript kodunun çalışmasıdır.
+XSS zafiyet saldırılarından korunmak için Web Application Firewall (WAF) kullanılmalıdır. Bunun
+yanında giriş işlemlerinde < , > , / , = gibi XSS zafiyetinde kullanılan karakterler engellenebilir veya
+sadece gereken bilginin alınması sağlanabilir.
 
+<h3>HTML Injection Zafiyeti</h3>
 
+HTML injection olarak adlandırılan bu zafiyet, dışarıdan herhangi bir kişinin siteye HTML kodu
+enjekte etmesine olanak tanıyan bir güvenlik açığıdır. HTML injection, kullanıcıların dışarıdan veri
+girdisi yaptığı bütün form işlemlerinde oluşabilen bir zafiyettir. Web sitesi içindeki bir yazı kutusu,
+bir liste kutusu, arama kutusu, yorum yapma gibi veri girdisinin yapılacağı alanlarda kullanılan bir
+açıktır. XSS ile benzerlik gösteren özellikleri olsa da HTML injection sadece HTML etiketleri ile
+kullanılır. HTML injection zafiyeti kullanılarak yapılabilecek işlemler şunlardır:
+
+• Web sayfasının içerik bilgilerini değiştirme<br>
+• Kullanıcı oturum verilerini elde etme<br>
+• SRF karşıtı işlemlerin keşfi<br>
+• Tarayıcıda kaydedilen parolaları elde etme<br>
+
+**Web Sayfasının İçerik Bilgilerini Değiştirme**: En basit saldırı tekniklerinden biridir. Saldırganın
+zafiyetli site üzerinde sitenin görünürlüğünü veya site içinde ekli olan dosyaları, görselleri, yazıları
+değiştirmesi ile meydana gelen bir saldırı türüdür. Örneğin saldırgan, satmak istediği bir ürünün
+görsel reklamı için depolanan bir HTML eklemesi kullanabilir.
+
+**Hassas Oturum Verilerini Elde Etme**: Bu saldırı tekniğinde saldırgan, sitede hazır verilen form
+elementlerini kullanarak veya kendi eklediği HTML form kodları ile bir form sayfası oluşturabilir
+ve bu sayfaya girilen değerleri kendi local ağına yönlendirip kullanıcı verilerini çalmaya yönelik
+bir saldırı gerçekleştirebilir.
+
+CSRF Karşıtı İşlemlerin Keşfi: Saldırgan, siteler arası istek sahteciliği olarak da bilinen bu saldırı
+türünü kullanabilmek için CSRF karşıtı belirteçleri sızdırmaya çalışabilir. Bu konuda saldırgan,
+HTML kodlarından ve HTML injection zafiyetinden yararlanabilir.
+
+**Tarayıcıda Depolanan Parolaları Elde Etme**: HTML eklemeleri saldırganlarca tarayıcı parola
+yöneticileri tarafından otomatik olarak doldurulan formları yerleştirmek için de kullanılabilir.
+Saldırgan uygun bir form eklemeyi başarırsa parola yöneticisi kullanıcı kimlik bilgilerini otomatik
+olarak ekler.
+
+Kodları yazan kişinin özensiz, plansız ve güvenlik risklerini hiçe sayarak web sitesini geliştirmesi
+sonucu HTML injection zafiyeti ortaya çıkar. PHP dilinin eski ve güvensiz sürümlerinin kullanılması,
+tarayıcı eklentileri ve eklentilerin sürümlerinin eski olması, HTML veri girişi alanlarının gerekli
+kontrollerden geçmeden kodlanması bu zafiyeti saldırganların kullanmasına sebebiyet verir.
+
+<h3> HTML Injection Zafiyetini Kullanarak Saldırı Yapma </h3>
+
+Aşağıdaki işlem adımlarına göre hedefteki bir sosyal paylaşım web sitesinin HTML açıklarıyla
+kullanıcı verilerini elde ediniz.
+
+1. Adım: Hedef sitede veri girişi yapılan alanlara HTML kodları girerek, açık olup olmadığını
+deneyiniz.
+
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/access.PNG">
+
+2. Adım: Hedef sitede veri girişi yapılan alanlara girilen kodların çalışıp çalışmadığını test
+ediniz. Kodlar çalışıyorsa açık var demektir. İşleme devam ediniz.
+
+3. Adım: Sosyal paylaşım web sitesinde HTML injection zafiyetini tespit ediniz. Bu açığı
+kullanarak, siteye girecek kullanıcı bilgilerini ele geçirme amaçlı bir metin gönderip (VIP üyelik
+hakkı kazandınız.) Kullanıcıların metindeki adrese giriş yapmasını sağlayınız.
+
+Örnek HTML Kodu : 
+
+ ```
+<h1><mark>KAZANDINIZ!!!</mark>VIP Üyelik Hakkı Kazandınız. Üyeliğinizi ücretsiz VIP seçeneğine yükseltmek için TIKLAYINIZ</h1><a href=”https://fake-sitemiz.
+com”>TIKLAYINIZ</a>
+ ```
+4. Adım: Siteye giriş yapan kişileri hazırladığınız sahte siteye yönlendirerek kişilerin bilgilerini girmesini isteyiniz ve verileri ele geçiriniz. Bu noktada saldırganın uygulayacağı sosyal
+mühendislik yöntemleri inanırlığını artırarak verilerin ele geçirilmesini sağlar.
+
+<h3> LFI (Local File Inclusion) ve RFI (Remote File Inclusion) Açıkları </h3>
+
+LFI ve RFI, son kullanıcının izni olmayan dosyalara erişiminden doğan açıklardır. Bu iki açığın
+kullanım şekli neredeyse aynıdır.
+
+**LFI**'de amaç; sunucudaki bir dosyaya yazılımın doğal yollarla izin vermediği, herhangi bir
+tıklama veya yönlendirme ile erişilmeyen, herhangi bir yerde açıkça erişilemeyen dosyaya
+erişmektir.
+
+**RFI**'de ise amaç, sunucuda var olmayan bir dosyayı yazılımın izin verdiği veya vermediği bir
+form ekranından ya da adres satırından sunucuya yüklemek ve orada çalıştırmaktır.
+Kullanım şekilleri aynı olsa da sonuç bakımından ikisi arasında belirgin farklar vardır. LFI ile
+sunucuda bilinen bir dosyaya erişildiği veya dosya çalıştırıldığı için genellikle sunucudaki bir ayar
+dosyası okunup sunucudan şifreler veya değerli bilgiler elde edilir. RFI ise kullanıcının istediği
+dosyayı sunucuya yükleyip, hedef işletim sisteminde çalışacağını düşünerek hazırlanacak herhangi
+bir zararlı dosyanın sunucuda çalıştırılabilmesidir. Böylelikle sunucuya yetkili erişim kazanmak da
+dâhil olmak üzere istenen dosyayı okuma, herhangi bir dosyayı değiştirme, silme, sunucudaki
+kurulu başka programları çalıştırabilme gibi birçok sonuç elde edilebilir. Sonuç olarak saldırgan,
+sunucuyu kendi bilgisayarı gibi kullanabilir. Her iki durumda da verilebilecek zararın büyüklüğü
+saldırganın hayal gücüne bağlıdır. Teknik bilgi ve kötü niyet ne kadar fazlaysa hem sunucuya hem
+de sunucunun sahibi kişi veya kuruma verilebilecek zarar da o kadar fazla olur.
+ 
+**Örnek**
+
+LFI açığına örnek için bir galeri sitesi ve bu sitede iki tane link olsun.
+
+Müşteri Projeleri Sayfası: https://www.ornek-sitem.com/?kaynak=musteri.php
+
+Kendi Projelerimin Sayfası: https://www.ornek-sitem.com/?kaynak=benim.php
+
+İki linkin de çok masum bir amacı olduğu düşünülebilir. Burada önemli olan ‘kaynak’ adlı
+parametredir. Bu parametre ile “musteri.php” ve “benim.php” dosyaları çağrılabilir. Kaynak kod
+aşağıda verilmiştir.
+
+```
+<?php
+$dosya = $_GET[‘kaynak’];
+if(isset(“sayfalar/” . $dosya)) {
+ include(“sayfalar/” . $dosya);
+} else {
+ include(“hata.php”);
+}
+?>
+```
+
+LFI açığı tam burada devreye girer. Kodda da görüldüğü gibi `kaynak` değeri ne olursa olsun
+sadece sunucuda var olup olmadığı kontrol edilip, hemen altındaki`include(“sayfalar/” . $dosya);`
+satırında başka bir kontrol yapılmadan dosya doğruca çağrılmıştır. Kötü niyetle düşünülürse burada
+var olmayan ama sunucuda var olan başka bir dosya çağrılabilir. Örneğin Linux sunucularda `/etc/
+passwd` dosyası kullanıcı adlarını ve şifrelerini saklar. Bu dosyaya erişilirse sunucu şifresi elde
+edilir. Bunun için link aşağıdaki gibi değiştirilip dosyaya erişim denenebilir.
+
+https://www.ornek-sitem.com/?kaynak=../../../../../../../../../../../../etc/passwd
+
+Burada önemli nokta, sunucuda var olduğu bilinen dosyanın konumu bilinerek veya tahmin
+edilerek adres girilmesidir. Örneğin `passwd` dosyası her zaman `/etc/passwd` konumundadır ama
+site `/var/www/projeler/okul_projeleri/web_dersi/ornek-sitem.com` adından yayın yapabilir. Bu
+durumda `passwd` dosyasına erişebilmek için kök dizine kadar geri gidilmesi, ardından tekrar
+gerçek yoldan ilerlenerek dosyaya erişilmesi gerekir. Aynı yöntemle projenin `config.php` dosyası
+veya önemli başka bir dosya okunabilir.
+
+**Örnek**
+
+RFI açığına örnek için URL’den dosya çağrılabilen bir link olsun. Aşağıdaki kodda görüldüğü
+üzere hiçbir kontrol yapılmadan $_GET ile gelen kaynak linki doğruca çalıştırılmak istenmiştir.
+
+```
+<?php
+ include($_GET[“kaynak”]);
+?>
+```
+
+Bu durumda masum bir dosya çağırmak yerine aşağıdaki gibi bir yöntemle sunucuda hazırlanan
+zararlı dosya çalıştırılabilir.
+
+Her ne kadar örnek kod ve anlatım PHP dilinde olsa da aynı durum diğer diller için de geçerlidir.
+Bu saldırıdan korunmanın yolu, gönderilen tüm dosyaların hem yollarının hem de içeriklerinin
+çok katı kurallarla kontrol edilmesidir. LFI açığında sadece izin verilen klasörlerdeki dosyaların ve
+dosya uzantılarının çağrılması şart koşulabilir. RFI açığında ise kullanılan yazılım dilinin ayarlarında
+uzaktan dosya çalıştırılması engellenebilir.
+
+<h3>WEB UYGULAMALARINDA OTOMATİZE ARAÇLARLA ZAFİYET TESPİTİ</h3>
+
+Web sitelerindeki zafiyetlerin tespiti gerek kişinin bilgisi dâhilînde kod yapısını inceleyerek
+veya çeşitli keşif yöntemleri ile manuel olarak gerekse otomatik test araçları ile sağlanabilir.
+Web sitelerine otomatize araçlarla yapılan test sonuçlarındaki zafiyetler tespit edilerek güvenlik
+açıklarının kapatılması mümkündür. Sızma ve zafiyet testlerinde otomatize araçlardan faydalanılır.
+Web site açıklarını tespit etmek için çok fazla araç vardır. Kali Linux işletim sisteminde de
+birçok yönteme uygun araç hazır olarak gelir. Kali Linux işletim sisteminde Uygulamalar, Kali
+Linux, Web Applications, Web Vulnerability Scanner yolu izlenerek otomatize web site zafiyet
+araçlarına erişmek mümkündür. Kali Linux işletim sisteminde burpsuite, nikto, skipfish, w3af,
+whatweb, wpscan gibi çeşitli amaçlara hizmet eden ve web açıklarını bulan otomatize araçlar yer
+alır.
+
+Web sitesinde bulunan açıkların tespitinde açığın keşfedilmesi en çok vakit alan şeylerden
+biridir. Kullanıcılar bu açıkları keşfetmediği sürece diğer aşamaya geçemez. Gerek kötü amaçlı
+kullanıcılar gerekse sızma testi yapan ve güvenlik önlemi almaya çalışan kullanıcılar öncelikle
+zafiyetlerin keşfini yapmalıdırlar. Keşif için yukarıda da belirtildiği gibi birçok araç bulunur. Bu
+araçlardan bazılarının kullanım amaçları ve bulduğu zafiyetler aşağıda verilmiştir.
+
+**Wafw00f**: Bu araç bir web sayfasının önünde hangi güvenlik duvarı olduğunun keşfinde
+kullanılır. Güvenlik duvarının hangi sistemlere sahip olduğu bilinirse ona göre daha özel saldırılar
+gerçekleştirilebilir. Bu noktada kullanıcılar güvenlik duvarlarının ve yük dengeleyici cihazlarının
+güncelliğinden ve güvenliğinden emin olmalıdır. Kötü amaçlı kullanıcılar, kullanılan cihazı bu
+yöntemle belirler.
+
+**Wpscan**: Bu aracı kullanarak wordpress kurulan sitelerin açıklarını keşfetmek mümkündür.
+Saldırganlar, wpscan ve wpscan on-line aracını kullanarak wordpress açıklarını keşfeder ve bu
+zafiyetleri kullanarak saldırılarda bulunur. Site özellikle wordpress sürümü ve onunla beraber
+gelen açıklara karşı güvende tutulmalı ve açıklar kapatılmalıdır.
+
+**Nessus**: Bu araç daha çok iç ağda kullanılır. Lisansları alındığı takdirde mobil cihaz zafiyetlerinden uygulama zafiyetlerine kadar birçok alanda tarama yapabilir. Sunucu ağı ve son kullanıcı
+ağları tek seferde nessus ile taratılıp, zafiyetler öğrenilerek gerekli aksiyonları (güncelleme vb.)
+alınabilir. Nessus Professional ücretli bir programdır. Nessus Home ise ücretsiz kullanılabilecek
+sürümüdür. 
+
+**Nikto**: Bu araç, web sunucularına karşı kapsamlı testler gerçekleştiren bir açık kaynak (GPL) web
+sunucusu tarayıcısıdır. Ayrıca birden çok dizin dosyasının varlığı, HTTP sunucusu seçenekleri gibi
+sunucu yapılandırma ögelerini kontrol eder ve kurulu web sunucuları ile yazılımları tanımlamaya
+çalışır. Nikto aracı ile web sitesi zafiyetleri çok kolay tespit edilebilir.
+
+**Nmap**: Ağ keşfi ve güvenlik denetimi için ücretsiz ve açık kaynak bir araçtır. Birçok sistem ve ağ
+yöneticisi nmap aracını ağ envanteri ve hizmet güncelleme programlarını yönetme veya hizmet
+çalışma süresini izleme gibi görevler için de yararlı bulur. Bu araç; ağda hangi bilgisayarların mevcut
+olduğunu, bu bilgisayarların hangi hizmetleri sunduğunu, hangi işletim sistemlerini çalıştırdığını,
+ne tür paket filtrelerinin veya güvenlik duvarlarının kullanıldığını ve düzinelerce başka özelliği
+belirlemek için ham IP paketlerini kullanır. Nmap, büyük ağları hızla taramak için tasarlanmıştır.
+
+**Skipfish**: Google tarafından desteklenen ve web uygulaması güvenlik testlerinde kullanılan
+araçlardandır. Güvenlik zafiyetlerinin yanı sıra sözlük taraflı taramalar da gerçekleştirebilir.
+
+**W3af**: Web uygulamaları için kullanılan saldırı ve denetim programıdır. Bu araçla web sitesi
+analizi ve zafiyet taraması yapılabilir.
+
+<h3>W3af Aracının Kullanımı </h3>
+
+W3af aracı kullanılarak web sitelerinde zafiyet taramasının otomatik bir şekilde yapılması
+sağlanabilir. Bu araçla birçok zafiyetin keşfedilmesi mümkündür. XSS açıkları, SQL injection
+açıkları, SSI detection, LFI açıkları, RFI açıkları, Buffer Overflow açıkları gibi birçok açık w3af ile
+tespit edilebilir.
+W3af aracı, Kali Linux işletim sisteminde hazır olarak gelir. Uygulamalar, Kali Linux, Web
+Applications, Web Vulnerability Scanner, w3af yolu izlenerek veya uçbirime w3af yazılarak açılır.
+Uygulama açıldıktan sonra tarama yapılacak web sitesi yazılarak zafiyetlerin keşfine başlanabilir.
+
+**W3af Aracıyla Web Site Zafiyetlerinin Keşfi**
+
+Aşağıdaki işlem adımlarına göre meslek.eba.gov.tr adresinin zafiyet taramasını yapınız.
+
+1. Adım: Kali Linux işletim sistemini kullanarak w3af aracını açınız ve zafiyet taramasını
+otomatize yapmak için hızlı tarama alanını tıklayarak meslek.eba.gov.tr’yi hedef adres kısmına
+giriniz.
+
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/w3af.PNG">
+
+2. Adım: Taramanın sonuçlanmasını bekleyiniz ve sonuçları Log, Vulnerabilities alanından
+görüntüleyiniz. Taramanın sonucunda hiç açık olmadığını doğrulayınız.
+
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/w3af1.PNG">
+
+3. Adım: Tarama sonucunda bulunan açıkları görüntüleyiniz.
+
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/w3af2.PNG">
+
+<h3>WEB UYGULAMALARI GÜVENLİK DUVARI (WAF) VE UYGULAMA FİLTRELERİNİ ATLATMA </h3>
+
+Web uygulamalarını geliştiriciden bağımsız olarak saldırılara karşı korumak için Web
+Application Firewall (WAF), bir başka deyişle web uygulamaları güvenlik duvarı kullanılır. Bu
+sayede özel bir koruma sağlanabilir. Normal güvenlik duvarları sadece gelen ve giden paketleri
+kontrol eder, ona göre işlem yapar. WAF ise normal güvenlik duvarlarının yaptığı işin yanında
+gelen ve giden paketlerde zararlı içerikler olup
+olmadığının da kontrolünü sağlar. Uygulama
+geliştiriciler kod yapılarını hazırlarken veri giriş
+alanlarını filtreleyerek web uygulamalarını
+güvenli hâle getirirler. Bunun yanında uygulama
+katmanında bulunabilecek bir WAF ile de
+güvenliklerini sağlamak isterler. WAF dışında
+IPS sistemleri de kullanılır. IPS’ler saldırı tespiti,
+analizi ve engellenmesi için kullanılır. Gelen ve
+giden paketlere bakılarak, zararlı bir içerik olup
+olmadığı kontrol edilir. Uyarının yanında çeşitli
+aksiyonlar da alır. Zararlı içerik tespit edilmesi
+durumunda trafik kesilebilir ve engelleme işlemi
+yapılabilir.
+
+Alınan tüm önlemlere rağmen yanlış yapılandırmalar, korumanın devre dışı bırakılması veya
+geleneksel güvenlik duvarı gibi sadece kara listeye dayalı bir güvenlik önlemi yapılandırılmasının
+olması bu sistemlerin atlatılmasına sebebiyet verebilir. Sistemi atlatmak için kullanılabilecek
+yöntemlerden bazıları aşağıda verilmiştir.
+
+<h3>SSL Kullanarak WAF Atlatma</h3>
+
+WAF yapılandırmalarında sıklıkla SSL yapılandırmaları doğru yapılmaz veya SSL servisleri hiç
+yapılandırılmaz. Bu bilgi dâhilînde çeşitli yöntemler kullanılarak WAF/IPS sistemlerinin atlatılması
+mümkündür.
+
+SSL, kullanıcılar ile web uygulamaları arasındaki trafiği şifreleyerek güvenli bir ortam sağlayan
+sistemdir. SSL, güvenli veri iletimi sağlamak için kullanıcı ve sunucu arasındaki trafiği şifreler. Bu
+kanaldan aktarılan saldırı aktivitelerinin görülebilmesi için SSL trafiğinin bu sistemler üzerinde
+sonlandırılması veya trafiğin açıldıktan sonra sunuculara yollandığı bir bölgede (SSL offloader
+veya reverse Proxy sistemleri ile sunucular arasında) konumlandırılması gerekir. Dolayısıyla bu
+şekilde konumlandırılmayan saldırı tespit sistemleri, SSL trafiğini analiz edemez ve saldırıları
+engelleyemez. Gerekli ayarların yapılıp yapılmadığını anlamak için kullanılabilecek en basit
+yöntem, saldırı tespit sistemi tarafından engelleneceği bilinen bir isteğin sunucuya hem HTTP hem
+de HTTPS veya SSL aktif edilmiş sistem üzerinden gönderilmesidir. Örneğin GET /../../../../../etc/
+passwd HTTP/1.0 dizin atlatma tekniğini kullanan bir saldırı imzası ile bu işlem gerçekleştirilebilir.
+İlgili istek her iki kanaldan gönderildiğinde de engellenebiliyorsa gerekli ayarlar yapılmış demektir.
+Windows işletim sisteminde putty adlı uygulama kullanılarak SSH tünelleme yapılabilir. Bunun
+yanı sıra sshuttle adlı araçla SSH tünelleme işlemi basit ve hızlı bir şekilde gerçekleştirilebilir.
+
+<h3>Güçlü SSL İmzalarıyla Sistemleri Atlatma</h3>
+
+Sunucu üzerinde desteği bulunan SSL Chip’lerin kullanımı durumunda güvenlik sistemini
+atlatmak mümkündür. Bunun için Diffie-Hellman anahtar değişimi kullanılabilir. Bu, kriptografik
+anahtarların değişiminde kullanılan özel bir yöntemdir ve kriptografi alanında uygulanan ilk
+pratik anahtar değişimi örneklerinden biridir. Diffie-Hellman anahtar değişimi metodu, iki tarafın
+güvensiz medya üzerinden karşılıklı ortak gizli anahtar elde etmelerine olanak sağlar. Bu anahtar
+daha sonra bir simetrik anahtar şifre ile güvenli olmayan kanaldan iletişimi şifrelemek için
+kullanılabilir.
+
+<h3>Filtreleme İfadelerini Değiştirmek</h3>
+
+WAF sistemleri genellikle önceden oluşturulmuş kara liste (İstek içinde SELECT ifadesi
+geçiyorsa engelle.) ve beyaz liste (Parametre değeri yalnızca 0 ve 65535 arasında olabilir,
+ Web Güvenliği 344
+bu kurala uymayan bir istek geliyorsa engelle.) ile gelen istekleri karşılaştırarak, bir saldırı
+olup olmadığını tespit eder. Özellikle kara liste kontrolleri belirli ifadeler oluşması durumunda
+saldırıları tespit edeceği için sadece ' , ", >, <, / gibi ifadeleri gönderildiğinde bu tip istekleri
+engelleyemeyebilir. Örneğin aşağıdaki gibi bir istek güvenlik kontrollerine takılırken parametrelerin
+sonunda yapılacak ufak değişikliklerle WAF atlatmak mümkündür.
+
+**WAF’a Yakalanan İstek**
+
+http://www.ornek-site.com.tr/giris.php?id=123’+union+selec+1,2,3--
+
+**WAF’a Yakalanmayan İstek**
+
+http://www.ornek-site.com.tr/giris.php?id=123’
+
+Böylelikle sisteme SQL injection işlemi yapılıp yapılamayacağı tespit edilebilir.
+
+<h3>HTTP Parametre Değişikliğiyle Sistemi Atlatma</h3>
+
+Saldırgan, HTML parametrelerini değiştirerek sistemi atlatabilir. Sistem genellikle bazı
+parametreleri engellerken bazılarını içeriye alabilir. Bu sayede sistem atlatılabilir.
+
+**WAF’a Yakalanan İstek**
+
+http://www.ornek-site.com.tr/giris.php?id=123
+
+**WAF’a Yakalanmayan İstek**
+
+http://www.ornek-site.com.tr/giris.php?id=789
+
+Sistemde kullanılan sunucu türlerine göre sistemlerin vereceği tepkiler değişir. Bu durumda
+hangi sistemin kullanıldığının tespitinin ardından filtreleme işlemi o sunucuya göre değiştirilmelidir.
+
+<h3> Basit Karmaşıklaştırma Teknikleriyle Atlatma </h3>
+
+Özellikle uygulama geliştiriciler bazı problemleri engellemek için belirli anahtar kelimelere
+göre filtreleme fonksiyonları hazırlayabilir. Örneğin Cross-Site Scripting saldırılarını engellemek
+için script, alert, src; SQL Injection saldırılarını engellemek için ise select, union, from gibi ifadeler
+geçen istekleri filtreleyen veya bunları içerikten silerek çözüm üretmeye çalışan fonksiyonlarla
+sıkça karşılaşılır ancak filtreleme fonksiyonlarında gerekli kontrollerin düzgün yapılmaması nedeni
+ile saldırı ifadeleri içinde büyük ve küçük harflerin karışık kullanımıyla gerçekleştirilen saldırılarda
+başarı elde edilebilir.
+
+Örneğin bu tarz filtrelerde <script>alert(123)<script> gibi bir istek engellenebilirken, gerekli
+kontrollerin düzgün yapılmaması durumunda <ScriPt>aLerT(123)</sCRipt> gibi büyük ve küçük
+harfler bir arada kullanılarak karmaşıklaştırılmış bir istek filtreden kaçabilir.
+ 
+ <h3>Encoding Tekniklerini Kullanmak</h3>
+ 
+ Kara listeye alma temelli kontrolleri atlatmak için kullanılabilecek bir diğer yöntem, saldırı
+isteklerini kısmen veya tamamen sunucu tarafından desteklenen encoding teknikleri ile
+değiştirerek yollamaktır. Örneğin çoğu uygulamada web uygulama problemlerinin ortaya
+çıkmasına neden olan ‘, “, <, >, /, ; , |, \ gibi karakterlerin filtrelendiği veya bu karakterlerinin
+kullanılması durumunda önlerine \ karakteri eklenerek (escaping) veya çıktılarda encode
+edilerek işlendiği görülür ancak bu işlem sadece bu karakterlerin normal veya birkaç farklı
+gösterimi için gerçekleştirilmesi durumunda değişik encoding yöntemleri ile kontroller atlatılabilir.
+ 
+ ‘ karakterinin farklı gösterimleri aşağıda verilmiştir.
+ 
+URL Encode -%27<br>
+Double URL Encode -%2527<br>
+UTF-8 (2 byte) -%c0%a7<br>
+UTF-8 (JAVA) -\uc0a7<br>
+HTML Entity -&apos;<br>
+HTML Entity Number -&#27;<br>
+Decimal -&#39<br>
+Unicode URL Encoding -%u0027<br>
+Base64 -Jw==<br>
+
+ Güvenlik filtreleri tarafından yakalanan saldırı ifadeleri değişik encoding teknikleri ile birlikte
+kullanılarak uygulamanın ve web sunucusunun da izin vermesi durumunda bu kontrollerin
+atlatılması mümkün olabilir.
+Bütün bu atlatma yöntemlerinin yanında aynı işlevi gören farklı mantıksal operatörler
+kullanmak, aynı işlevleri gören farklı fonksiyonlar kullanmak, script tag işaretleri olmadan XSS
+zafiyetini kullanacak saldırıları gerçekleştirmek mümkündür. 
+ 
+ 
+ 
+ 
+ 
