@@ -309,4 +309,118 @@ kullanıcının tıklamasını sağlayarak kendi hazırladığı zararlı bir ad
 Saldırgan, hedef kullanıcının bilgisayarına zararlı yazılımı otomatik indirebilir veya varsa sitedeki
 XSS zafiyeti ile birleştirerek oturum bilgilerine erişebilir.
 
-328
+<h3> Yönlendirme Zafiyetini Kullanarak Saldırı Yapma </h3>
+
+Aşağıdaki işlem adımlarına göre localhostta konumlandırılmış PHP ile hazırlanan bir web
+uygulamasında yönlendirme zafiyetini kullanarak istenilen site (www.mesleklisesi.com) yerine
+www.google.com sitesine yönlendirilmesini sağlayınız.
+
+1. Adım: PHP komut yapısında header() işlevini ham bir HTTP başlığı göndermek için kullanınız.
+Bir başka deyişle belirtilen HTTP adres yapısına tıklayıp bir yönlendirme işlemi gerçekleştiriniz.
+
+```
+<?php
+header("Location:” . $_GET[‘url’]
+exit;
+?>
+```
+
+Yukarıdaki PHP kod blokunda header() fonksiyonu kullanılarak $_GET yöntemi ile yakalanan
+URL parametresinin değerine bir yönlendirme yapıldığı görülmektedir.
+
+Index.php sayfasından gönderilen URL parametresinin değerini yakalayarak (www.
+mesleklisesi.com) adresine istenen şekilde sayfayı yönlendiriniz
+
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/urlrouting.PNG">
+
+2. Adım: Burpsuite gibi bir araya girme programı ile istekleri yakalayınız. İstekleri yakalayıp
+incelediğinizde görüleceği üzere PHP kod blokunda herhangi bir filtreleme işlemi yapılmadığı için
+bu aşamadaki URL parametresi istenen herhangi bir adrese yönlendirilebilir.
+
+<img src="https://github.com/FazzPy/Cyber-Security/blob/main/img/burpurl.PNG">
+
+3. Adım: Burpsuite uygulamasını kullanarak, url= parametresinin değerini http://www.
+google.com olarak değiştirip isteği sunucuya yollayınız ve zafiyeti test ederek sonucu izleyiniz.
+
+4. Adım: Localhostta bulunan web sitesinin yönlendirme işlemini tekrar deneyiniz. www.
+mesleklisesi.com olan yönlendirme işlemi www.google.com’a yönlendirilerek zafiyetin başarılı
+bir şekilde kullanıldığı görülür.
+
+Bu tarz saldırılara karşı önlem almak istendiğinde kodları yazan geliştirici, gelecek isteklerdeki
+verileri doğru bir şekilde filtreleyerek işlemin uygulanmasını sağlamalıdır. Güvenli URL
+adreslerinden oluşan listelerle çalışarak güvenliği artırmalıdır. Web uygulamalarında güvenilir
+olmayan dış kaynaklara erişim sağlanmak istendiğinde kullanıcılar uyarılmalıdır. Kodlama
+yapılırken yönlendirme fonksiyon komutları yerine özel linkler ile bağlantılar kurulmalıdır. 
+
+<h3>XSS (Cross Site Scripting) Zafiyet</h3>
+
+XSS, tarayıcı üzerinden gerçekleştirilen bir saldırı çeşididir. Genellikle tarayıcıdaki çerezlerin
+çalınması veya kullanıcının izni ve bilgisi olmadan sayfanın zararlı bir adrese yönlendirilmesiyle
+uygulanır. Bu saldırı çeşidinde sunucu sistem değil, sitenin yöneticisi veya kullanıcıları hedeftir.
+Bu saldırının üç farklı çeşidi olmasına rağmen en zararlısı DOM XSS'dir. XSS zafiyeti kullanılarak
+yapılabilecekler aşağıda verilmiştir.
+
+• Cookie bilgileri çalınabilir.<br>
+• Web sayfası başka bir sayfaya yönlendirilebilir.<br>
+• Farklı bir sunucudan zararlı kodlar çalıştırılabilir.<br>
+• Keylogger olarak kullanılabilir.<br>
+
+**A) Stored XSS**
+
+Bu yöntemde bir içerik kayıt formuna (Input) ihtiyaç vardır. Saldırgan, veri tabanına kaydedilip,
+son kullanıcıya gösterilen herhangi bir kayıt formundan JavaScript kodları yazıp bu kodların veri
+tabanına kaydedilmesini sağlar. Böylelikle veri tabanından o kayıt çağrıldığında istenen kodlar
+çalışıyorsa sitede XSS açığı olduğu söylenebilir.
+
+**B) Reflected XSS**
+
+XSS’in hedef sitede etkin olup olmadığını öğrenmenin en hızlı yolu bu yöntemi denemektir.
+Bunun için URL’den gelen JavaScript kodlarının gömülü olduğu parametrenin çalışıp çalışmadığı
+kontrol edilir. Herhangi bir önlem alınmadan JavaScript kodları çalışıyorsa bu yöntemle farklı
+amaçlara yönelik saldırılar planlanabilir.
+
+Bu yöntemde URL’den girilen herhangi bir bilginin veri tabanına kaydedilmese dahi anında site
+içinde çalışması gerekir. Böylelikle zararlı kod içeren bir link hazırlanıp, hedef kişiye gönderilerek
+tarayıcı üzerinden istenen bilgiler çalınabilir.
+
+Zafiyet Aranan Link:
+
+ https://www.benim-sitem.com/arama.php?ara=cicek
+ 
+Linkte görüldüğü üzere `ara` parametresi ile çiçek aramak istenmektedir. Bir sitede XSS açığı
+olduğundan şüpheleniliyorsa site aşağıdaki gibi zararlı bir link ile kontrol edilebilir.
+
+**Zafiyet Uygulanan Link**
+
+https://www.benim-sitem.com/arama.php?ara=<script>alert(‘Bilgilerinizi ele geçirdim!’)</script>
+
+Linke tıklandıktan sonra bir bildirim çıkıyorsa `alert()` fonksiyonu yerine JavaScript ile zararlı
+kodlar yazılarak kötü niyetli işler yapılabilir.
+
+DOM bir W3 standardıdır ve HTML ile XML gibi hiyerarşik yapıların modellerini tanımlar. DOM,
+web tarayıcıları kullanılarak girilen internet sayfasını bir belge, sayfa içindeki elemanların hepsini
+de bir nesne olarak kabul eder. Sayfada bulunan yazılar, resimler ve diğer elemanların hepsi birer
+nesnedir. DOM, sayfa içindeki nesnelere müdahale ederek özelliklerinin değiştirilmesini sağlar.
+Bütün bu işlemleri yapabilmek için JavaScript gibi script dilleri kullanılır.
+Bu yöntemin çalışma şekli Stored XSS'e benzer ama zararlı JavaScript kodunun veri tabanına
+yazılmasına gerek yoktur. DOM XSS, URL'den alınan bir bilginin doğrudan DOM nesnesine
+eklenmesi sonucu ortaya çıkan bir zafiyettir. 
+
+ Aşağıdaki gibi bir kodun web sitesinde yer aldığını varsayınız.
+ 
+ ```
+<script>
+ document.write(“Şu an bu linki incelemektesiniz : “ + document.baseURI);
+</script>
+ ```
+
+Script kodunda `document.baseURI` ile adres kısmındaki herhangi bir bilgi hiç kontrol
+edilmeden `document` nesnesine yazılmıştır. Bu durumda kullanıcının yazabileceği herhangi
+zararlı bir kod doğrudan çalışacaktır.
+
+**Zararlı Link**
+
+https://www.benim-sitem.com/index.html#<script>alert(‘Bilgilerinizi ele geçirdim !’)</script>
+
+
+
